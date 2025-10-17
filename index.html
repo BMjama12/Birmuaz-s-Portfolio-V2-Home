@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bir Muaz. | Home</title>
+
+  <link rel="stylesheet" href="style.css">
+ <!-- icon cdn -->
+ <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <script type="text/javascript" src="app.js" defer></script>
+</head>
+<body>
+
+  <div id="overlay">
+    <div class="spinner"></div>
+  </div>
+
+  <div class="pointer" aria-hidden="true"></div>
+  <nav id="sidebar">
+    <ul>
+      <li>
+        <div class="logo">
+           <h3><span>B</span>ir Muaz.</h3>
+        </div>
+        <button onclick=toggleSidebar() id="toggle-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m313-480 155 156q11 11 11.5 27.5T468-268q-11 11-28 11t-28-11L228-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T468-692q11 11 11 28t-11 28L313-480Zm264 0 155 156q11 11 11.5 27.5T732-268q-11 11-28 11t-28-11L492-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T732-692q11 11 11 28t-11 28L577-480Z"/></svg>
+        </button>
+      </li>
+      <li class="active">
+        <a href="index.html">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M240-200h120v-200q0-17 11.5-28.5T400-440h160q17 0 28.5 11.5T600-400v200h120v-360L480-740 240-560v360Zm-80 0v-360q0-19 8.5-36t23.5-28l240-180q21-16 48-16t48 16l240 180q15 11 23.5 28t8.5 36v360q0 33-23.5 56.5T720-120H560q-17 0-28.5-11.5T520-160v-200h-80v200q0 17-11.5 28.5T400-120H240q-33 0-56.5-23.5T160-200Zm320-270Z"/></svg>
+          <span>Home</span>
+        </a>
+      </li>
+       <li>
+        <a href="profile.html">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-240v-32q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v32q0 33-23.5 56.5T720-160H240q-33 0-56.5-23.5T160-240Zm80 0h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"/></svg>
+          <span>Profile</span>
+        </a>
+      </li>
+      <li>
+        <a href="portfolio.html">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M520-640v-160q0-17 11.5-28.5T560-840h240q17 0 28.5 11.5T840-800v160q0 17-11.5 28.5T800-600H560q-17 0-28.5-11.5T520-640ZM120-480v-320q0-17 11.5-28.5T160-840h240q17 0 28.5 11.5T440-800v320q0 17-11.5 28.5T400-440H160q-17 0-28.5-11.5T120-480Zm400 320v-320q0-17 11.5-28.5T560-520h240q17 0 28.5 11.5T840-480v320q0 17-11.5 28.5T800-120H560q-17 0-28.5-11.5T520-160Zm-400 0v-160q0-17 11.5-28.5T160-360h240q17 0 28.5 11.5T440-320v160q0 17-11.5 28.5T400-120H160q-17 0-28.5-11.5T120-160Zm80-360h160v-240H200v240Zm400 320h160v-240H600v240Zm0-480h160v-80H600v80ZM200-200h160v-80H200v80Zm160-320Zm240-160Zm0 240ZM360-280Z"/></svg>
+          <span>Portfolio</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="contact.html">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 2048 2048"><path fill="#fff" d="M740 1077q65 33 117 81t90 108t57 128t20 142H896q0-79-30-149t-83-122t-122-82t-149-31q-79 0-149 30t-122 83t-82 122t-31 149H0q0-73 20-141t57-128t89-108t118-82q-73-54-114-136t-42-173q0-79 30-149t83-122t122-82t149-31q79 0 149 30t122 83t82 122t31 149q0 91-41 173t-115 136M256 768q0 53 20 99t55 81t81 55t100 21q52 0 99-20t81-55t55-81t21-100q0-52-20-99t-55-81t-82-55t-99-21q-53 0-99 20t-81 55t-55 82t-21 99m1792-384v128h-896V384zm-896 512h896v128h-896zm0 512h896v128h-896z"/></svg>
+          <span>Contact</span>
+        </a>
+      </li>
+
+      <!-- <li>
+        <button onclick=toggleSubMenu(this) class="dropdown-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h207q16 0 30.5 6t25.5 17l57 57h320q33 0 56.5 23.5T880-640v400q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H447l-80-80H160v480Zm0 0v-480 480Zm400-160v40q0 17 11.5 28.5T600-320q17 0 28.5-11.5T640-360v-40h40q17 0 28.5-11.5T720-440q0-17-11.5-28.5T680-480h-40v-40q0-17-11.5-28.5T600-560q-17 0-28.5 11.5T560-520v40h-40q-17 0-28.5 11.5T480-440q0 17 11.5 28.5T520-400h40Z"/></svg>
+          <span>Create</span>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z"/></svg>
+        </button>
+        <ul class="sub-menu">
+          <div>
+            <li><a href="#">Folder</a></li>
+            <li><a href="#">Document</a></li>
+            <li><a href="#">Project</a></li>
+          </div>
+        </ul>
+      </li>
+      <li>
+
+        <button onclick=toggleSubMenu(this) class="dropdown-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m221-313 142-142q12-12 28-11.5t28 12.5q11 12 11 28t-11 28L250-228q-12 12-28 12t-28-12l-86-86q-11-11-11-28t11-28q11-11 28-11t28 11l57 57Zm0-320 142-142q12-12 28-11.5t28 12.5q11 12 11 28t-11 28L250-548q-12 12-28 12t-28-12l-86-86q-11-11-11-28t11-28q11-11 28-11t28 11l57 57Zm339 353q-17 0-28.5-11.5T520-320q0-17 11.5-28.5T560-360h280q17 0 28.5 11.5T880-320q0 17-11.5 28.5T840-280H560Zm0-320q-17 0-28.5-11.5T520-640q0-17 11.5-28.5T560-680h280q17 0 28.5 11.5T880-640q0 17-11.5 28.5T840-600H560Z"/></svg>
+          <span>Todo-Lists</span>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z"/></svg>
+        </button>
+        <ul class="sub-menu">
+          <div>
+            <li><a href="#">Work</a></li>
+            <li><a href="#">Private</a></li>
+            <li><a href="#">Coding</a></li>
+            <li><a href="#">Gardening</a></li>
+            <li><a href="#">School</a></li>
+          </div>
+        </ul>
+      </li> -->
+      
+
+    </ul>
+  </nav>
+
+  <main>
+
+    <div class="container-custom">
+      <nav style="margin-top: -30px;"><h2 style="font-size: 35px;"><span style="color: #12f7ff;">B</span>ir Muaz.</h2></nav>
+    <section id="home" class="home">
+      <div class="home-content">
+          <h1 style="padding-bottom: 20px;">Hi! I'm <span style="color: #12f7ff;">B</span>ir Muaz</h1>          
+          <div style="padding-bottom: 10px;" class="change-text">
+              <h3>And I'm</h3>
+              <h3>
+                  <span style="color: #12f7ff;" class="auto-type"></span>
+                  <span class="word">Web&nbsp;Designer</span>
+                  <span class="word">Frontend&nbsp;Developer</span>
+                  <span class="word">UX/UI&nbsp;Designer</span>
+                  <span class="word">Youtuber</span>
+                  <span class="word">Digital&nbsp;Marcketing&nbsp;Speacialist</span>
+                     
+              </h3>
+          </div>
+
+          <p>Professional Graphics Designer and Web Designer, working in design field for 5 years so far. Specialized in Graphics Designing, Branding and Web Designing.</p>
+     
+          <div class="info-box">
+              <div class="e-mail-info">
+                  <h5>E-mail :</h5>
+                  <span>Example@gmail.com</span>
+              </div>
+  
+              <div class="behance-info">
+                  <h5>Behance :</h5>
+                  <span>behance.net/Example</span>
+              </div>
+          </div>
+  
+          <div class="btn-box">
+              <a href="#" class="halka-opore-othbe btn">Download CV</a>
+              <a href="#" class="btn">Let's Talk!</a>
+          </div>
+  
+          <div class="social-icons ">
+              <a class="halka-opore-othbe" href="#" ><i class='bx bxl-facebook'></i></a>
+              <a class="halka-opore-othbe" href="#" ><i class='bx bxl-instagram'></i></a>
+              <a class="halka-opore-othbe" href="#" ><i class='bx bxl-twitter'></i></a>
+              <a class="halka-opore-othbe" href="#" ><i class='bx bxl-linkedin'></i></a>
+  
+  
+          </div>
+      </div>
+
+     
+
+     </section>
+
+     <br><br> <br> <br><br>
+
+            <section style="margin-top: -500px;" class="over-view my-5 ">
+            <h1 class="text-center halka-opore-othbe" style=" color: transparent;
+  font-size: 45px;
+  letter-spacing: 0.5rem;
+  -webkit-text-stroke-width: 0.15rem;
+  -moz-text-stroke-width: 0.15rem;
+  -ms-text-stroke-width: 0.15rem;
+  -o-text-stroke-width: 0.15rem;
+  -webkit-text-stroke-color: white;
+  -moz-text-stroke-color: white;
+  -ms-text-stroke-color: white;
+  -o-text-stroke-color: white; margin-bottom: 20px;"><span style="">A</span>chievements<ion-icon style="rotate: 90deg;" name="arrow-forward-outline"></ion-icon></h1>
+            <div class="conatiner d-flex align-items-center">
+              
+              <div class="row w-100 text-center fs-3 ">
+                <div class="col halka-opore-othbe">
+                  <h1 class="achievements-scrolling-animation animation-counter" data-val="100">000+</h1>
+                    <span style="font-weight: bolder; color: #12f7ff;">+</span> Projects Completed
+                </div>
+
+<br><br> <br> <br><br>
+                <!-- 2nd item -->
+                 <div class="col halka-opore-othbe ">
+                  <h1 class="achievements-scrolling-animation animation-counter" data-val="500">000+</h1>
+                   <span style=" font-weight: bolder; color: #12f7ff;">+</span> Satisfied Customer's
+                </div>
+
+                <!-- 3rd item -->
+                 <div class="col halka-opore-othbe">
+                  <h1 class="achievements-scrolling-animation animation-counter" data-val="95">00%</h1>
+                  <span style="font-weight: bolder; color: #12f7ff;">%</span> Satifaction Rate
+                </div>
+
+                  <!-- 4th item -->
+                 <div class="col halka-opore-othbe">
+                  <h1 class="achievements-scrolling-animation animation-counter" data-val="360">000</h1>
+                   <span style="font-weight: bolder; color: #12f7ff;">+</span> Five Star Rates
+                </div>
+
+              </div>
+            </div>
+           </section>
+  <br><br> <br> <br><br>
+     
+           <section class="service-sec">
+             <h2 style="text-align: center;"><span style="color: #12f7ff;">W</span>hat kind of service you will get from me</h2>
+            <br>
+            <div class="service-body">
+                <div class="service-text-box halka-opore-othbe">
+                <ion-icon name="images" style="border-radius: 50%; padding: 5%; background-color: rgb(0, 158, 221); font-size: 3em; color: white; transition: 0.5s;"></ion-icon>
+                <h2>Grapichs Design</h2>
+                 <p>Expert in Grapichs Design. and also expert in Adobe PhotoShop, Illustrator. Graphic design is the art and practice of planning and creating visual content to communicate messages and ideas.</p>
+              </div>
+
+              <div class="service-text-box halka-opore-othbe">
+                <ion-icon name="pencil-outline" style="border-radius: 50%; padding: 5%; background-color: rgb(0, 158, 221); font-size: 3em; color: white; transition: 0.5s;"></ion-icon>
+                <h2>Story Writing</h2>
+               <p>Professional in Story Writing. Professional writing is a type of writing that utilizes a formal style for the business setting.</p>
+              </div>
+
+               <div class="service-text-box halka-opore-othbe">
+                <ion-icon name="code-slash-outline" style="border-radius: 50%; padding: 5%; background-color: rgb(0, 158, 221); font-size: 3em; color: white; transition: 0.5s;"></ion-icon>
+                <h2>Web Designing</h2>
+              <p>Expert in HTML5, CSS3, JavaSript, Python, WordPress Designing and more. Coding, also known as programming, is the process of creating instructions for computers using programming languages.</p>
+              </div>
+
+            </div>
+           </section>
+           <br><br ><br> <br><br>
+           <section class="responsive-animeted-css-service-section-body">
+     <div class="responsive-animeted-css-service-section-body">
+      <h1 style="text-align: center; margin-bottom: 20px;"><span style="color: #12f7ff;">M</span>y Skills</h1>
+      <br>
+      <div class="responsive-animeted-css-service-section">
+        <div class="responsive-animeted-css-service-box">
+            <div class="responsive-animeted-css-service-icon" style="--i: darkorange;">
+                <ion-icon name="logo-html5" style="font-size: 3em; color: white; transition: 0.5s;"></ion-icon>
+
+                
+            </div>
+            <div class="responsive-animeted-css-service-content">
+                <h2>HTML5</h2>
+                <p>Expert in HTML5. WHAT IS HTML (Hypertext Markup Language) is a text-based approach to describing how content contained within an HTML file is structured.</p>
+            </div>
+        </div>
+
+        <div class="responsive-animeted-css-service-box">
+            <div class="responsive-animeted-css-service-icon" style="--i: blue ;">
+                <ion-icon name="logo-css3" style="font-size: 3em; color: white; transition: 0.5s;"></ion-icon>
+            </div>
+            <div class="responsive-animeted-css-service-content">
+                <h2>CSS3</h2>
+              <p>Expert in CSS. WHAT IS CSS?, CSS stands for Cascading Style Sheets. It is a styling language used in web development to define the visual presentation and layout of web pages..</p>
+            </div>
+        </div>
+
+        <div class="responsive-animeted-css-service-box">
+            <div class="responsive-animeted-css-service-icon" style="--i: rgb(0, 158, 221);">
+                <ion-icon name="logo-wordpress" style="font-size: 3em; color: white; transition: 0.5s;"></ion-icon>
+            </div>
+            <div class="responsive-animeted-css-service-content">
+                <h2>WordPress</h2>
+             <p>Expert in WordPress Designing. WordPress is a free, open-source content management system (CMS) used to build and manage websites.</p>     
+             </div>
+        </div>
+
+        <div class="responsive-animeted-css-service-box">
+            <div class="responsive-animeted-css-service-icon" style="--i: teal;">
+                <ion-icon name="code-slash-outline" style="font-size: 3em; color: white; transition: 0.5s;"></ion-icon>
+            </div>
+            <div class="responsive-animeted-css-service-content">
+                <h2>Coding</h2>
+                <p>Expert in HTML5, CSS3, JavaSript, Python, WordPress Designing and more. Coding, also known as programming, is the process of creating instructions for computers using programming languages.</p>
+
+            </div>
+              </div>
+
+        <div class="responsive-animeted-css-service-box">
+            <div class="responsive-animeted-css-service-icon" style="--i: rgb(65, 0, 139);">
+                <ion-icon name="pencil-outline" style="font-size: 3em; color: white; transition: 0.5s;"></ion-icon>
+            </div>
+            <div class="responsive-animeted-css-service-content">
+                <h2>Writing</h2>
+             <p>Professional in Story Writing. Professional writing is a type of writing that utilizes a formal style for the business setting.</p>   
+              </div>
+        </div>
+
+        <div class="responsive-animeted-css-service-box">
+            <div class="responsive-animeted-css-service-icon" style="--i: rgb(0, 139, 30);">
+                <ion-icon name="images" style="font-size: 3em; color: white; transition: 0.5s;"></ion-icon>
+            </div>
+            <div class="responsive-animeted-css-service-content">
+                <h2>Grapichs Design</h2>
+              <p>Expert in Grapichs Design. and also expert in Adobe PhotoShop, Illustrator. Graphic design is the art and practice of planning and creating visual content to communicate messages and ideas.</p>    
+            </div>
+        </div>
+    
+    
+    </div>
+  </div>
+</section>
+<br><br><br><br><br>
+  <section style="margin-top: 20px;" class="text-center the-maine">
+    <h2><span style="color: #12f7ff;">T</span>estimonials</h2>
+    <h1><span style="color: rgb(0, 158, 221);">W</span>hat my clients says</h1>
+    <div class="section-grid">
+        <div class="section-seperatoring-line"></div>
+      <div class="section-card halka-opore-othbe">
+          <span><svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 20px;" width="62" height="72" fill="currentColor" class="bi bi-quote" viewBox="0 0 16 16">
+  <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"/>
+</svg></span>
+        <p><img style="border: none;" src="icon-star.png" alt="">
+          <img style="border: none;" src="icon-star.png" alt="">
+          <img style="border: none;" src="icon-star.png" alt="">
+          <img style="border: none;" src="icon-star.png" alt="">
+          <img style="border: none;" src="icon-star.png" alt="">
+        
+        </p>
+        <h4>Excellent Work!</h4>
+        <p>Bir Muaz's coding skills are amazing, he built my Tesla website, which is really attractive, and it has increased our sales several times over.
+Besides, he is good at graphic design, he does some of our editing work, honestly, you can see his talent in everything.</p>
+        <img src="Elon_Musk_Royal_Society.webp" alt="">
+        <h5>Elon Reeve Musk</h5>
+        <h6>Businessman and former Senior Advisor to the President of the United States, Former richest person of the world</h6>
+      </div>
+
+      <!-- 2nd card -->
+        <div class="section-card opore-vashman-lagbe">
+          <span><svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 20px;" width="62" height="72" fill="currentColor" class="bi bi-quote" viewBox="0 0 16 16">
+  <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"/>
+</svg></span>
+           <p><img style="border: none;" src="icon-star.png" alt="">
+          <img style="border: none;" src="icon-star.png" alt="">
+          <img style="border: none;" src="icon-star.png" alt="">
+          <img style="border: none;" src="icon-star.png" alt="">
+          <img style="border: none;" src="icon-star.png" alt="">
+        
+        </p>
+        <h4>Impressive Writing Skill!</h4>
+        <p>Bir muaz's writing skills are truly impressive, his various articles have increased our company's sales several times, and the results are truly amazing. He must be called talented.</p>
+        <img src="bill gates.jpg" alt="">
+        <h5>William Henry Gates (Bill Gates)</h5>
+        <h6>American businessman and philanthropist, Co-Founder of Microsoft</h6>
+      </div>
+
+      <!-- 3rd card -->
+        <div class="section-card halka-opore-othbe">
+        <span><svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 20px;" width="62" height="72" fill="currentColor" class="bi bi-quote" viewBox="0 0 16 16">
+  <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"/>
+</svg></span>
+           <p><img style="border: none;" src="icon-star.png" alt="">
+          <img style="border: none;" src="icon-star.png" alt="">
+          <img style="border: none;" src="icon-star.png" alt="">
+          <img style="border: none;" src="icon-star.png" alt="">
+          <img style="border: none;" src="icon-star.png" alt="">
+        
+        </p>
+        <h4>Bravo!</h4>
+        <p>Bir Muaz has done a lot of our designs, and his Grapichs Designing Skill are amazing, he even made the Google logo, What people are seeing every day now. he has participated in many projects with us. Besides, he has done some programming projects, starting from solving various Google problems and many more, His work is truly commendable.</p>
+        <img src="sergey brin.webp" alt="">
+        <h5>Sergey Brin</h5>
+        <h6>American computer scientist and former president of Alphabet, Co-Founder of Google</h6>
+      </div>
+    </div>
+
+  </section>
+     
+  <br><br> <br> <br><br>
+
+     <div><h1 style="text-align: center;"><span style="color: rgb(0, 158, 221);">B</span>rands I have worked with</h1></div>
+    <section class="timeline-sec">
+     
+      <!-- 1st timeline container -->
+      <div class="timeline-container timeline-left-container">
+          <img style="background-color: white;" src="microsoft-logo.webp" alt="">
+        <div class="timeline-text-box halka-opore-othbe">
+        
+          <h2>Microsoft Corporation</h2>
+          <small>2020-2021</small>
+          <p>By starting to work with Microsoft Corporation, I gained experience working with a large company for the first time. There I wrote various promotional articles, which doubled the company's revenue. Besides, i also did some Microsoft's web designing works.</p>
+        <span class="timeline-left-container-arrow"></span>
+        </div>
+      </div>
+<!-- container ends -->
+      
+ <!-- 2nd timeline container -->
+      <div class="timeline-container timeline-right-container">
+          <img src="tesla.png" alt="">
+        <div class="timeline-text-box halka-opore-othbe">
+        
+          <h2>Tesla</h2>
+          <small>2021-2022</small>
+          <p>I worked at Tesla primarily as a web developer. I started by creating Tesla's website and solved Tesla's logo and website related problems. When I worked at Tesla, I also designed the new SpaceX logo at the request of SpaceX founder Elon Reeve Musk.</p>
+       <span class="timeline-right-container-arrow"></span>
+        </div>
+      </div>
+<!-- container ends -->
+
+         <!-- 3rd timeline container -->
+      <div class="timeline-container timeline-left-container">
+          <img src="google.png" alt="">
+        <div class="timeline-text-box halka-opore-othbe">
+        
+          <h2>Google LLC</h2>
+          <small>2022-2023</small>
+          <p>I joined Google LLC as a graphic designer. I created Google's new logo, and I have worked on various images, covers, designs for Google, and many other graphic design related works. And I also done Google's some proggraming projects, Making The Google Play-Store App- And The Website etc.</p>
+       <span class="timeline-left-container-arrow"></span>
+        </div>
+      </div>
+<!-- container ends -->
+
+         <!-- 4th timeline container -->
+      <div class="timeline-container timeline-right-container">
+          <img src="adobe-logo.png" alt="">
+        <div class="timeline-text-box halka-opore-othbe">
+        
+          <h2>Adobe</h2>
+          <small>2023-2024</small>
+          <p>I joined Adobe as a web designer and junior software developer. I have designed the company's software Adobe Photoshop's  User Interface (UI), designed the company's software Adobe Illustrator's  User Interface (UI), and also done some software-related works.</p>
+         <span class="timeline-right-container-arrow"></span>
+        </div>
+      </div>
+<!-- container ends -->
+
+  <!-- 5th timeline container -->
+      <div class="timeline-container timeline-left-container">
+          <img src="amazon.png" alt="">
+        <div class="timeline-text-box halka-opore-othbe">
+        
+          <h2>Amazon</h2>
+          <small>2024-2025</small>
+          <p>At Amazon, I was a web designer, graphic designer, and a branding expert. There I worked on Amazon's website, various graphic design related works, such as animation and more, and have also done branding or brand promotional works.</p>
+         <span class="timeline-left-container-arrow"></span>
+        </div>
+      </div>
+<!-- container ends -->
+
+<!-- 6th timeline container -->
+      <div class="timeline-container timeline-right-container">
+          <img style="background-color: white;" src="hp-logo.png" alt="">
+        <div class="timeline-text-box halka-opore-othbe">
+        
+          <h2>Hewlett-Packard (hp)</h2>
+          <small>Started Working Since 2025</small>
+          <p>I joined Hewlett-Packard (HP) this year (2025), as a CEO. I did various types of work there, including supervising the company. The job is on a contract basis, and its term is going to end next year, 2026.</p>
+         <span class="timeline-right-container-arrow"></span>
+        </div>
+      </div>
+<!-- container ends -->
+
+    </section>
+    
+ 
+
+    <section class="get-in-touch">
+       <div class="get-the-touch">
+        <p class="display-1"><span style="color: #12f7ff;">S</span>tay Updated From Anywhere</p>
+    <br>    
+    </div>
+    
+     <div>
+    
+        <form class="pura-jinish-shoho-vashte-thakbe" action="">
+        <input style=" outline: none; overflow: hidden;" placeholder="Enter Your Email" type="email">      
+         </form>
+         <hr style="margin-top: -28px;">
+         
+        </div> 
+   
+    </section>
+
+     <br><br> <br> <br><br>
+    <section class="logo-silder">
+      <h2 style="text-align: center;"><span style="color: rgb(0, 158, 221);">B</span>rands I have participated in various projects</h2>
+      <marquee behavior="" direction="left"><h2>
+    
+        <svg class="halka-opore-othbe" xmlns="http://www.w3.org/2000/svg" width="256" height="55" viewBox="0 0 512 110"><path fill="#706d6e" d="M512 49.449v-9.005h-11.182V26.446l-.376.115l-10.503 3.214l-.206.063v10.606h-16.577v-5.908c0-2.751.615-4.857 1.828-6.26c1.204-1.388 2.926-2.093 5.122-2.093c1.58 0 3.214.372 4.86 1.105l.412.184V17.99l-.194-.07c-1.535-.553-3.623-.83-6.21-.83c-3.262 0-6.225.709-8.81 2.116s-4.62 3.419-6.045 5.976c-1.42 2.554-2.14 5.503-2.14 8.767v6.496h-7.786v9.005h7.786v37.933h11.177V49.449h16.577v24.106c0 9.928 4.682 14.96 13.918 14.96a22.8 22.8 0 0 0 4.746-.528c1.66-.357 2.79-.714 3.456-1.095l.147-.087v-9.088l-.454.301c-.607.405-1.362.735-2.248.98c-.89.25-1.633.376-2.208.376c-2.164 0-3.764-.583-4.758-1.734c-1.004-1.16-1.514-3.191-1.514-6.031v-22.16zm-82.768 29.926c-4.057 0-7.255-1.346-9.51-3.995c-2.267-2.664-3.417-6.46-3.417-11.285c0-4.977 1.15-8.872 3.419-11.583c2.255-2.692 5.423-4.059 9.417-4.059c3.875 0 6.96 1.305 9.17 3.882c2.221 2.589 3.348 6.453 3.348 11.488c0 5.097-1.06 9.013-3.15 11.632c-2.075 2.6-5.196 3.92-9.277 3.92m.498-40.062c-7.74 0-13.888 2.268-18.27 6.741c-4.381 4.474-6.602 10.664-6.602 18.402c0 7.349 2.168 13.26 6.444 17.567s10.096 6.49 17.295 6.49c7.503 0 13.528-2.299 17.91-6.834c4.38-4.53 6.6-10.662 6.6-18.22c0-7.463-2.083-13.418-6.192-17.696c-4.112-4.28-9.895-6.45-17.185-6.45m-42.894 0c-5.265 0-9.62 1.347-12.947 4.002c-3.346 2.671-5.044 6.175-5.044 10.414c0 2.203.366 4.16 1.088 5.82c.725 1.666 1.848 3.132 3.34 4.363c1.48 1.221 3.765 2.5 6.794 3.8c2.545 1.048 4.444 1.935 5.65 2.633c1.179.685 2.016 1.373 2.488 2.043c.459.655.692 1.553.692 2.66c0 3.154-2.361 4.688-7.22 4.688c-1.803 0-3.859-.376-6.111-1.118a23 23 0 0 1-6.257-3.173l-.464-.332v10.76l.17.08c1.582.73 3.576 1.345 5.926 1.83c2.346.484 4.476.731 6.328.731c5.713 0 10.314-1.353 13.67-4.024c3.38-2.69 5.092-6.275 5.092-10.662c0-3.163-.922-5.877-2.74-8.065c-1.803-2.17-4.935-4.163-9.303-5.924c-3.48-1.397-5.71-2.556-6.629-3.446c-.887-.86-1.337-2.076-1.337-3.615c0-1.366.556-2.459 1.697-3.345c1.15-.89 2.75-1.343 4.756-1.343c1.863 0 3.768.294 5.663.87c1.894.577 3.556 1.35 4.945 2.294l.456.312V41.358l-.175-.075c-1.28-.55-2.97-1.02-5.02-1.4c-2.044-.378-3.897-.57-5.508-.57m-47.13 40.062c-4.056 0-7.255-1.346-9.509-3.995c-2.268-2.664-3.415-6.46-3.415-11.285c0-4.977 1.148-8.872 3.418-11.583c2.253-2.692 5.42-4.059 9.416-4.059c3.875 0 6.96 1.305 9.17 3.882c2.221 2.589 3.348 6.453 3.348 11.488c0 5.097-1.06 9.013-3.15 11.632c-2.076 2.6-5.196 3.92-9.278 3.92m.499-40.062c-7.742 0-13.89 2.268-18.27 6.741c-4.38 4.474-6.603 10.664-6.603 18.402c0 7.352 2.17 13.26 6.445 17.567s10.095 6.49 17.296 6.49c7.5 0 13.528-2.299 17.91-6.834c4.379-4.53 6.6-10.662 6.6-18.22c0-7.463-2.084-13.418-6.194-17.696c-4.113-4.28-9.895-6.45-17.184-6.45m-41.84 9.26v-8.129h-11.041v46.937h11.04V63.37c0-4.083.926-7.437 2.753-9.97c1.803-2.503 4.207-3.772 7.14-3.772c.995 0 2.111.164 3.32.489c1.197.322 2.064.672 2.575 1.04l.464.337v-11.13l-.18-.077c-1.027-.437-2.482-.657-4.322-.657c-2.775 0-5.258.891-7.384 2.646c-1.867 1.543-3.217 3.659-4.248 6.297zm-30.813-9.26c-5.065 0-9.584 1.087-13.427 3.228c-3.85 2.145-6.829 5.21-8.855 9.105c-2.017 3.887-3.041 8.427-3.041 13.49c0 4.434.993 8.504 2.955 12.09c1.964 3.593 4.744 6.404 8.262 8.354c3.514 1.947 7.575 2.934 12.07 2.934c5.247 0 9.727-1.049 13.32-3.117l.144-.084V75.198l-.463.339a20.8 20.8 0 0 1-5.402 2.812c-1.952.681-3.73 1.025-5.29 1.025c-4.333 0-7.81-1.355-10.335-4.027c-2.53-2.677-3.813-6.434-3.813-11.163c0-4.758 1.338-8.612 3.974-11.457c2.629-2.835 6.113-4.273 10.356-4.273c3.629 0 7.165 1.229 10.51 3.656l.463.336V41.788l-.149-.084c-1.26-.705-2.976-1.287-5.108-1.728c-2.122-.44-4.198-.663-6.171-.663m-32.927 1.131h-11.042v46.937h11.042zm-5.408-19.995c-1.817 0-3.402.619-4.704 1.844c-1.308 1.23-1.972 2.778-1.972 4.604c0 1.798.656 3.317 1.95 4.514c1.287 1.193 2.877 1.798 4.726 1.798c1.848 0 3.444-.605 4.746-1.796c1.31-1.199 1.975-2.718 1.975-4.516c0-1.762-.647-3.295-1.921-4.554c-1.273-1.257-2.889-1.894-4.8-1.894m-27.548 16.533V87.38h11.268V21.886h-15.595l-19.823 48.647l-19.236-48.647h-16.23v65.495h10.589V36.977h.364l20.313 50.404h7.99l19.996-50.4z"/><path fill="#f1511b" d="M51.939 51.939H0V0h51.939z"/><path fill="#80cc28" d="M109.287 51.939H57.348V0h51.939z"/><path fill="#00adef" d="M51.938 109.307H0V57.368h51.938z"/><path fill="#fbbc09" d="M109.287 109.307H57.348V57.368h51.939z"/></svg>
+        <svg class="halka-opore-othbe" xmlns="http://www.w3.org/2000/svg" width="256" height="55" viewBox="0 0 512 168"><path fill="#ff302f" d="m496.052 102.672l14.204 9.469c-4.61 6.79-15.636 18.44-34.699 18.44c-23.672 0-41.301-18.315-41.301-41.614c0-24.793 17.816-41.613 39.308-41.613c21.616 0 32.206 17.193 35.633 26.475l1.869 4.735l-55.692 23.049c4.236 8.348 10.84 12.584 20.183 12.584c9.345 0 15.823-4.61 20.495-11.525M452.384 87.66l37.19-15.45c-2.056-5.17-8.16-8.845-15.45-8.845c-9.281 0-22.176 8.223-21.74 24.295"/><path fill="#20b15a" d="M407.407 4.931h17.94v121.85h-17.94z"/><path fill="#3686f7" d="M379.125 50.593h17.318V124.6c0 30.711-18.128 43.357-39.558 43.357c-20.183 0-32.33-13.58-36.878-24.606l15.885-6.604c2.865 6.79 9.78 14.827 20.993 14.827c13.767 0 22.24-8.535 22.24-24.482v-5.98h-.623c-4.112 4.983-11.961 9.468-21.928 9.468c-20.807 0-39.87-18.128-39.87-41.488c0-23.486 19.063-41.8 39.87-41.8c9.905 0 17.816 4.423 21.928 9.282h.623zm1.245 38.499c0-14.702-9.78-25.417-22.239-25.417c-12.584 0-23.174 10.715-23.174 25.417c0 14.514 10.59 25.042 23.174 25.042c12.46.063 22.24-10.528 22.24-25.042"/><path fill="#ff302f" d="M218.216 88.78c0 23.984-18.688 41.613-41.613 41.613c-22.924 0-41.613-17.691-41.613-41.613c0-24.108 18.689-41.675 41.613-41.675c22.925 0 41.613 17.567 41.613 41.675m-18.19 0c0-14.95-10.84-25.23-23.423-25.23S153.18 73.83 153.18 88.78c0 14.826 10.84 25.23 23.423 25.23c12.584 0 23.423-10.404 23.423-25.23"/><path fill="#ffba40" d="M309.105 88.967c0 23.984-18.689 41.613-41.613 41.613c-22.925 0-41.613-17.63-41.613-41.613c0-24.108 18.688-41.613 41.613-41.613c22.924 0 41.613 17.443 41.613 41.613m-18.253 0c0-14.95-10.839-25.23-23.423-25.23s-23.423 10.28-23.423 25.23c0 14.826 10.84 25.23 23.423 25.23c12.646 0 23.423-10.466 23.423-25.23"/><path fill="#3686f7" d="M66.59 112.328c-26.102 0-46.534-21.056-46.534-47.158c0-26.101 20.432-47.157 46.534-47.157c14.079 0 24.357 5.544 31.957 12.646l12.522-12.521C100.479 7.984 86.338.258 66.59.258C30.833.259.744 29.414.744 65.17s30.089 64.912 65.846 64.912c19.312 0 33.889-6.354 45.289-18.19c11.711-11.712 15.324-28.158 15.324-41.489c0-4.174-.498-8.472-1.059-11.649H66.59v17.318h42.423c-1.246 10.84-4.672 18.253-9.718 23.298c-6.105 6.168-15.76 12.958-32.705 12.958"/></svg>
+        <svg class="halka-opore-othbe" xmlns="http://www.w3.org/2000/svg" width="256" height="55" viewBox="0 0 512 134"><path fill="#fa0f00" d="m221.02 88.874l-5.524 17.025c-.152.567-.68.952-1.266.921h-13.327c-.805 0-1.033-.46-.922-1.149l23.005-66.373a20.9 20.9 0 0 0 1.155-7.02a.766.766 0 0 1 .689-.804h18.408c.555 0 .805.116.922.688l26.098 73.626c.228.555.117 1.032-.555 1.032h-14.954a1.16 1.16 0 0 1-1.266-.805l-5.864-17.141zm4.138-14.377h18.18l-1.75-5.633c-2.411-7.66-5.621-17.629-7.34-24.047h-.117c-1.838 7.708-5.98 20.363-8.973 29.68m46.932 4.232c-.005-16.448 12.3-30.252 33.356-30.252c.917 0 2.072.116 3.799.227V26.043a.727.727 0 0 1 .587-.797l14.71-.008c.556 0 .695.227.695.688V93.91a65 65 0 0 0 .46 8.402c0 .444-.074.693-.456.89l-.348.142a57.8 57.8 0 0 1-22.662 4.604c-17.025 0-30.14-9.662-30.14-29.22m37.155-16.337a11.9 11.9 0 0 0-4.26-.555a15.35 15.35 0 0 0-16.465 15.007l.018 1.096c0 11.389 6.558 16.337 15.298 16.337a16.2 16.2 0 0 0 5.409-.689zm81.83 14.32l.041 1.206c0 18.063-11.733 30.024-28.32 30.024c-19.673 0-28.414-14.837-28.414-29.68a28.147 28.147 0 0 1 28.642-29.791c18.044 0 27.574 13.211 28.051 28.24m-40.473 1.306c0 10.123 4.715 16.564 12.422 16.564c6.664 0 11.733-5.753 11.733-16.337c0-8.973-3.681-16.447-12.421-16.447c-6.664 0-11.734 5.98-11.734 16.22m50.654-52.78l14.032-.006c.921 0 1.15.117 1.15.922v23.583a37 37 0 0 1 7.706-1.217l1.955-.049a26.326 26.326 0 0 1 27.63 25.998l-.021 1.383c0 21.512-17.025 32.096-34.506 32.096a60.2 60.2 0 0 1-18.063-2.643a1.36 1.36 0 0 1-.689-1.15v-78.11c0-.555.228-.805.806-.805m22.959 36.79l-.987.014a23.4 23.4 0 0 0-6.785.922v31.174c.93.215 1.876.356 2.828.42l1.43.04a15.83 15.83 0 0 0 16.66-17.252a13.516 13.516 0 0 0-13.146-15.317m51.97 20.371c.555 6.558 5.175 11.966 16.448 11.966c4.847.09 9.662-.811 14.148-2.648c.35-.228.694-.117.694.555V103.2c0 .805-.227 1.15-.805 1.383a38.65 38.65 0 0 1-15.79 3.374l-1.812-.043c-21.623 0-29.22-14.837-29.22-29.102c0-15.479 9.296-29.643 26.498-30.342l1.339-.027a23.455 23.455 0 0 1 24.272 24.85a37 37 0 0 1-.556 7.707a.994.994 0 0 1-.921.921q-4.433.42-8.884.47zm14.954-11.156a37.5 37.5 0 0 0 5.753-.227v-.806a9.357 9.357 0 0 0-9.779-9.09a10.9 10.9 0 0 0-11.045 10.123zM75.314 49.137l35.466 84.148H87.535l-10.611-26.798H50.97zM150.599 0v133.269L94.921 0zM55.701 0L0 133.269V0z"/></svg>
+        <svg class="halka-opore-othbe" xmlns="http://www.w3.org/2000/svg" width="70" height="55" style="margin-left: 10px;" viewBox="0 0 32 32"><path fill="currentColor" d="M29.936 14.968a14 14 0 0 0-2.3-6.714C26.327 6.3 24.527 4.67 22.43 3.597c-1.617-.853-3.414-1.353-5.23-1.514c-.41-.087-.823.006-1.237.01c-.98 2.81-2 5.605-2.99 8.412c.72.013 1.44-.01 2.16.01c.524.022 1.075.242 1.365.702c.333.52.312 1.185.104 1.748l-2.938 8.253c-.863.013-1.727 0-2.59.007c-.12-.002-.245.012-.36-.033c1.096-3.02 2.167-6.06 3.25-9.083c-.517-.01-1.032.002-1.547-.007c-.08.165-.137.34-.196.513c-.994 2.794-1.997 5.588-2.987 8.384c-.047.066-.035.23-.147.23c-.822.003-1.645-.005-2.467 0c-.148 0-.3.022-.443-.02c2.255-6.256 4.46-12.532 6.716-18.79c-4.407.944-8.2 4.243-9.838 8.432c-.672 1.66-.965 3.45-1.002 5.233c.046.854.106 1.715.273 2.562a13.87 13.87 0 0 0 4.027 7.408a13.97 13.97 0 0 0 6.17 3.452c2.247-6.276 4.48-12.562 6.717-18.85c.02-.046.064-.138.09-.184c1.38.014 2.766.002 4.146.006c.453.007.918-.043 1.354.094c.506.137.98.502 1.14 1.018c.11.407.03.84-.104 1.23c-.887 2.573-1.812 5.124-2.73 7.694c-.228.67-.903 1.09-1.598 1.107c-1.076.02-2.147-.012-3.23.014c-.982 2.762-1.96 5.52-2.944 8.272c.256.103.528.02.794.035c.4.027.802-.043 1.198-.065a13.85 13.85 0 0 0 7.242-2.885a14.1 14.1 0 0 0 3.953-4.875c.812-1.64 1.27-3.438 1.396-5.244c-.06-.642-.044-1.277-.014-1.908zm-9.514 5.063c.916-2.658 1.89-5.296 2.818-7.95c-.398-.008-.8.002-1.197-.005c-.115.017-.268-.042-.354.055c-.944 2.636-1.88 5.276-2.823 7.912c.518.003 1.04.024 1.555-.01z"/></svg>
+        <svg class="halka-opore-othbe" xmlns="http://www.w3.org/2000/svg" width="156" height="55" viewBox="0 0 24 24"><path fill="currentColor" d="m12 5.362l2.475-3.026s4.245.09 8.471 2.054c-1.082 1.636-3.231 2.438-3.231 2.438c-.146-1.439-1.154-1.79-4.354-1.79L12 24L8.619 5.034c-3.18 0-4.188.354-4.335 1.792c0 0-2.146-.795-3.229-2.43C5.28 2.431 9.525 2.34 9.525 2.34zl-.004.002H12zm0-3.899c3.415-.03 7.326.528 11.328 2.28c.535-.968.672-1.395.672-1.395C19.625.612 15.528.015 12 0C8.472.015 4.375.61 0 2.349c0 0 .195.525.672 1.396C4.674 1.989 8.585 1.435 12 1.46z"/></svg>
+        <svg class="halka-opore-othbe" xmlns="http://www.w3.org/2000/svg" width="140" height="156" style="margin-left: 10px;" viewBox="0 0 32 32"><path fill="currentColor" d="M31.937 9.287c-.011 0-.016-.005-.02-.005a.1.1 0 0 0-.032.011C11.713 11.324 2.234 20.094 0 22.252l.297.468h3.525c9.161-9.213 21.541-12.271 28.089-13.276l.005.005c.004 0 .009-.011.015-.011a.08.08 0 0 0 .068-.077c0-.037-.027-.063-.063-.073zM.505 14.011l-.213.401l4.328 3.156a42 42 0 0 1 2.683-1.432l-2.901-2.125zm9.62 4.186a45 45 0 0 0-2.235 1.756l3.803 2.765h3.943l.167-.359z"/></svg>
+        <svg class="halka-opore-othbe" xmlns="http://www.w3.org/2000/svg" width="256" height="156" style="margin-left:-20px; overflow: hidden;" viewBox="0 0 24 24"><path fill="currentColor" d="M14.408 13.7c-1.163.856-2.847 1.313-4.298 1.313a7.78 7.78 0 0 1-5.25-2.003c-.108-.098-.01-.232.12-.156c1.495.87 3.343 1.393 5.252 1.393c1.288 0 2.704-.266 4.007-.819c.196-.084.361.129.169.272"/><path fill="currentColor" d="M14.89 13.147c.15.19-.165.975-.305 1.325c-.042.106.049.149.145.069c.624-.522.784-1.614.657-1.772s-1.217-.292-1.881.176c-.103.071-.086.17.028.157c.375-.045 1.209-.145 1.357.045M13.56 9.645V9.19c0-.069.053-.115.115-.115h2.035c.065 0 .117.047.117.115v.39c0 .065-.055.15-.153.285L14.62 11.37c.392-.01.805.049 1.16.249c.08.045.102.111.109.177v.485c0 .066-.074.143-.15.103a2.34 2.34 0 0 0-2.15.004c-.07.038-.144-.039-.144-.105v-.46c0-.074 0-.2.075-.313l1.22-1.75h-1.063c-.065 0-.118-.047-.118-.114m-7.42 2.834h-.62a.12.12 0 0 1-.11-.105V9.198c0-.064.053-.114.12-.114h.577c.06.002.108.049.112.106v.415h.011c.15-.401.434-.588.815-.588c.388 0 .63.187.804.588a.88.88 0 0 1 .855-.588a.88.88 0 0 1 .716.347c.196.267.156.656.156.996v2.005a.117.117 0 0 1-.12.115h-.618a.12.12 0 0 1-.112-.115v-1.684c0-.134.012-.468-.017-.595c-.046-.213-.185-.273-.364-.273c-.15 0-.306.1-.37.26s-.057.428-.057.608v1.684a.117.117 0 0 1-.12.115H7.18a.117.117 0 0 1-.111-.115l-.001-1.684c0-.354.058-.875-.381-.875c-.445 0-.428.508-.428.875v1.684a.117.117 0 0 1-.12.115M17.58 9.017c.918 0 1.415.789 1.415 1.792c0 .968-.55 1.737-1.416 1.737c-.902 0-1.393-.789-1.393-1.771c0-.99.497-1.758 1.393-1.758m.004.648c-.456 0-.485.622-.485 1.01s-.006 1.217.48 1.217c.48 0 .502-.67.502-1.077c0-.268-.01-.588-.092-.842c-.07-.221-.208-.308-.405-.308m2.603 2.815h-.617a.12.12 0 0 1-.111-.115l-.001-3.178a.117.117 0 0 1 .12-.103h.573a.12.12 0 0 1 .11.089v.485h.012c.173-.434.416-.641.844-.641c.277 0 .548.1.722.374c.162.254.162.682.162.99v1.999a.12.12 0 0 1-.12.1h-.62a.12.12 0 0 1-.11-.1v-1.726c0-.347.04-.855-.387-.855c-.15 0-.29.1-.358.254c-.087.194-.098.387-.098.601v1.711a.12.12 0 0 1-.121.115m-8.247-1.517v-.134c-.449 0-.921.095-.921.623c0 .267.139.448.377.448c.173 0 .33-.107.428-.281c.122-.214.116-.415.116-.656m.624 1.508a.13.13 0 0 1-.146.015c-.206-.17-.243-.25-.356-.413c-.34.347-.58.45-1.02.45c-.521 0-.926-.32-.926-.964c0-.502.271-.845.66-1.012c.336-.148.805-.174 1.164-.215v-.08c0-.147.01-.321-.076-.448c-.075-.114-.22-.161-.348-.161c-.235 0-.445.12-.497.371c-.01.056-.051.111-.108.114l-.6-.065c-.05-.011-.107-.052-.092-.13c.138-.727.796-.947 1.385-.947c.3 0 .694.08.932.309c.301.28.272.656.272 1.064v.965c0 .29.12.417.234.574c.039.055.048.122-.003.164c-.126.106-.35.301-.474.411zm-8.739-1.508v-.134c-.448 0-.92.095-.92.623c0 .267.138.448.376.448c.174 0 .33-.107.428-.281c.122-.214.116-.415.116-.656m.624 1.508a.13.13 0 0 1-.146.015c-.206-.17-.242-.25-.355-.413c-.34.347-.58.45-1.02.45c-.521 0-.927-.32-.927-.964c0-.502.272-.845.66-1.012c.336-.148.805-.174 1.164-.215v-.08c0-.147.011-.321-.075-.448c-.076-.114-.22-.161-.347-.161c-.236 0-.447.12-.498.371c-.01.056-.052.111-.107.114l-.601-.065c-.05-.011-.106-.052-.092-.13c.138-.727.795-.947 1.384-.947c.301 0 .695.08.932.309c.301.28.273.656.273 1.064v.965c0 .29.12.417.233.574c.04.055.049.122-.002.164c-.126.106-.35.301-.474.411z"/></svg>
+     
+       
+      </h2></marquee>
+        </section>
+   
+        <br>
+       <div class="section-seperatoring-line"></div>
+
+       <section class="web-footer">
+        <div class="logo-footer">
+           <div class="logo-de-footer display-1">
+          <a style=" font-family: 'poppins', sans-serif; text-decoration-color: rgb(0, 158, 221);" href="index.html"><p><span style="color: #12f7ff;">B</span>ir Muaz.</p></a>
+          </div>
+          
+            <ul style=" display: flex; align-items: center; justify-content:center; margin-right: 30px;" class="navlist">
+                <li class="halka-niche-nambe-for-footer-menu"><a href="profile.html">Profile</a></li>
+                <li class="halka-niche-nambe-for-footer-menu"><a href="portfolio.html">Portfolio</a></li>
+                <li class="halka-niche-nambe-for-footer-menu"><a href="contact.html">Contact</a></li>
+              
+            </ul>
+
+          <p style=" margin-top: 20px;">&copy; Copyright 2025, All rights reserved by Birmuaz, the owner of this website.</p>
+        </div>
+       </section>
+  </main>
+
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script>
+   var typed = new Typed(".auto-type",{
+   strings: ["Graphics Designer", "Web Developer", "Story Writer"],
+   typeSpeed :80,
+   backSpeed :50,
+   loop : true
+});
+  </script>
+
+   
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+</body>
+</html>
